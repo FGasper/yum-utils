@@ -93,7 +93,7 @@ def get_open_files(pid):
         with open(smaps, 'r') as maps_f:
             maps = maps_f.readlines()
     except (IOError, OSError), e:
-        print >>sys.stderr, "Could not open %s" % smaps
+        print >>sys.stderr, "Could not open %s: %s" % (smaps, e.strerror)
         return files
 
     for line in maps:
